@@ -8,10 +8,10 @@ internal class Program
 
     private static int ConvertNumber()
     {
-        bool cycle = false;
+        bool isWorking = false;
         int number = 0;
 
-        while (cycle == false)
+        while (isWorking == false)
         {
             Console.Write("Введите число: ");
             string userInput = Console.ReadLine();
@@ -19,7 +19,7 @@ internal class Program
             if (int.TryParse(userInput, out number) == true)
             {
                 Console.WriteLine($"Преобразование прошло успешно! Число: {number}");
-                cycle = true;
+                isWorking = true;
             }
             else
             {
