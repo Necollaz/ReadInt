@@ -2,29 +2,23 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine(ConvertNumber());
+        int result;
+        Console.WriteLine("Введите число: ");
+        result = GetNumber();
+
+        Console.WriteLine($"Преобразование прошло успешно! Вы ввели число: {result}.");
         Console.ReadKey();
     }
 
-    private static int ConvertNumber()
+    private static int GetNumber()
     {
-        bool isWorking = false;
         int number = 0;
+        string userInput = Console.ReadLine();
 
-        while (isWorking == false)
+        while (int.TryParse(userInput, out number) == false)
         {
-            Console.Write("Введите число: ");
-            string userInput = Console.ReadLine();
-
-            if (int.TryParse(userInput, out number) == true)
-            {
-                Console.WriteLine($"Преобразование прошло успешно! Число: {number}");
-                isWorking = true;
-            }
-            else
-            {
-                Console.WriteLine("Преобразование не успешно! Попробуйте еще раз.");
-            }
+            Console.WriteLine($"Преобразование прошло не успешно! Попробуйте снова.");
+            userInput = Console.ReadLine();
         }
 
         return number;
